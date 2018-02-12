@@ -4,7 +4,7 @@ import createHistory from "history/createBrowserHistory";
 import { routerMiddleware } from "react-router-redux";
 
 import rootReducer from "./reducers/index.js";
-import * as Actions from "./actions/index.js";
+
 
 export const history = createHistory();
 

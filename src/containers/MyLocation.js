@@ -6,17 +6,14 @@ import * as Actions from '../actions/index.js';
 class MyLocation extends React.Component{
      
     componentDidMount(){
-     this.showMyLocation()
+     this.props.showMyLocation()
+    
     }
     render(){
         return<div>
+                 
               </div>
     }
 }
-function mapStateToProps (state){
-   return {
-       myLocation: state.MyLocation
-   }
-}
 
-export default connect (mapStateToProps, Actions)(MyLocation);
+export default connect (null, Actions)(MyLocation);
