@@ -2,9 +2,8 @@ import axios from "axios";
 
 import { WEATHER } from "../constants.js";
 import { QUOTE } from "../constants.js";
-import { ADD_TO_LOCALSTORAGE } from "../constants.js";
-import {DISPLAY_LOCALSTORAGE_DATA} from '../constants.js';
-//import {REMOVE_FROM_LOCALSTORAGE} from '../constants.js';
+
+import { DISPLAY_LOCALSTORAGE_DATA } from "../constants.js";
 
 export function showMyLocation() {
   const myLocationURL = "http://ip-api.com/json";
@@ -29,7 +28,7 @@ export function showWeather(location) {
         `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&APPID=${API_KEY}`
       )
       .then(response => {
-        console.log ('response', response.data)
+        console.log("response", response.data);
         dispatch({
           type: WEATHER,
           payload: response.data
@@ -61,12 +60,13 @@ export function addToLocalStorage(location) {
   return dispatch => {
     const toBeStored = location;
     const storedLocations = JSON.parse(localStorage.getItem("locations")) || [];
-    console.log ('stored length', storedLocations.length)
+
     if (storedLocations.length > 0) {
       for (let i = 0; i < storedLocations.length; i++) {
-        if (toBeStored.id === storedLocations[i].id||toBeStored.name === storedLocations[i].name) {
-          return false;
-        }
+        if (
+          toBeStored.id === storedLocations[i].id ||
+          toBeStored.name === storedLocations[i].name
+        ){return false }
       }
       const myLocations = [toBeStored, ...storedLocations];
       localStorage.setItem("locations", JSON.stringify(myLocations));
@@ -74,23 +74,26 @@ export function addToLocalStorage(location) {
       const myLocations = [toBeStored];
       localStorage.setItem("locations", JSON.stringify(myLocations));
     }
-      dispatch({
-      type: ADD_TO_LOCALSTORAGE,  
-    }); 
+    dispatch(fetchStoredLocations());
   };
-};
+}
 
-
-export function fetchStoredLocations(){
+export function fetchStoredLocations() {
   let storedLocations;
-  return dispatch=>{
-    storedLocations = JSON.parse(localStorage.getItem('locations'))||[]
-    console.log ('actions stored', storedLocations)
+  return dispatch => {
+    storedLocations = JSON.parse(localStorage.getItem("locations")) || [];
     dispatch({
       type: DISPLAY_LOCALSTORAGE_DATA,
       payload: storedLocations
-    })
-  }  
-  }
+    });
+  };
+}
 
-
+export function removeStoredLocation(id) {
+  return dispatch => {
+    const storedLocations = JSON.parse(localStorage.getItem("locations"));
+    const savedLocations = storedLocations.filter(item => item.id !== id);
+    localStorage.setItem("locations", JSON.stringify(savedLocations));
+    dispatch(fetchStoredLocations());
+  };
+}

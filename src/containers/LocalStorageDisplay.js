@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import * as Actions from '../actions/index.js';
 import LocalStorage from './LocalStorage.js';
+import StoredLocation from '../components/StoredLocation.js';
 
 class LocalStorageDisplay extends React.Component{
     
@@ -9,8 +10,16 @@ class LocalStorageDisplay extends React.Component{
         console.log ('dziaa;')
         this.props.fetchStoredLocations()
     }
+    removeStoredLocation=(id)=>{
+        console.log ('remove works')
+        this.props.removeStoredLocation(id)
+    }
     showStoredLocations=()=>{
-      console.log (this.props.storedLocations)
+      
+      return this.props.storedLocations.map(location=>{
+          
+          return <StoredLocation key={location.id||location.name} location={location} removeStoredLocation={this.removeStoredLocation}/>
+      })
     }
     render(){
         return <div>
@@ -22,7 +31,7 @@ class LocalStorageDisplay extends React.Component{
     }
 }
 function mapStateToProps(state){
-    console.log ('stored loc', state.storedLocations)
+   
     return {
         storedLocations: state.storedLocations
     }

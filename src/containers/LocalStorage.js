@@ -8,7 +8,7 @@ class LocalStorage extends React.Component{
         let location = this.props.location;
         location = location[0];
         delete location.temp
-        console.log(location);
+        
         this.props.addToLocalStorage(location)
     }
     render(){
