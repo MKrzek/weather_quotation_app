@@ -13,6 +13,13 @@ class Quote extends React.Component {
   }
   componentDidMount() {
     this.props.fetchQuote();
+    this.quoteId = setInterval(() => {
+      this.props.fetchQuote();
+    }, 8.64e7);
+  }
+
+  componentWillUnmount(){
+    clearInterval(this.quoteId);
   }
   decodeEntities = (encodedString) => {
     if (encodedString && typeof encodedString === "string") {
