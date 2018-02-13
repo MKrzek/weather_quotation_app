@@ -30,7 +30,6 @@ class SearchBar extends React.Component {
 
   submitForm = values => {
     const location=values.searchBar;
-    
     this.props.showWeather(location);
     values.searchBar = "";
   };

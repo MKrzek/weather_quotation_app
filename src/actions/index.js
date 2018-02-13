@@ -2,11 +2,12 @@ import axios from "axios";
 
 import { WEATHER } from "../constants.js";
 import {QUOTE} from "../constants.js";
+import {ADD_TO_LOCALSTORAGE} from '../constants.js';
+import {REMOVE_FROM_LOCALSTORAGE} from '../constants.js';
 
-const myLocationURL = "http://ip-api.com/json";
-const API_KEY = "0d97dafb64ebaf36cf169cd4e5f02e5a";
 
 export function showMyLocation() {
+  const myLocationURL = "http://ip-api.com/json";
   return dispatch => {
     axios
       .get(myLocationURL)
@@ -21,6 +22,7 @@ export function showMyLocation() {
 }
 
 export function showWeather(location) {
+  const API_KEY = "0d97dafb64ebaf36cf169cd4e5f02e5a";
   return dispatch => {
     axios
       .get(
@@ -38,11 +40,9 @@ export function showWeather(location) {
   };
 }
 export function fetchQuote(){
-  console.log ('dziala')
   return dispatch=>{
     axios.get("http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1")
     .then(response=>{
-      console.log(response);
       dispatch({
         type:QUOTE,
         payload: response.data[0]
@@ -53,3 +53,25 @@ export function fetchQuote(){
     });
   }
 }
+export function addToLocalStorage(location){
+  return dispatch=>{
+    
+  }
+}
+
+//  event.preventDefault();
+//     const beers = JSON.parse(localStorage.getItem('myFavBeers'))||[];
+    
+//     if (beers.length>0){
+//       for (let i=0; i<beers.length;i++){   
+//              if (this.props.beer.id===beers[i].id){ 
+//                  return false
+//              }};
+//          const myFavBeers = [this.props.beer, ...beers];
+//          localStorage.setItem('myFavBeers', JSON.stringify(myFavBeers))        
+//     };  
+//     if (beers.length===0){  
+//            const myFavBeers = [this.props.beer]
+//                 localStorage.setItem('myFavBeers', JSON.stringify(myFavBeers))
+
+// };

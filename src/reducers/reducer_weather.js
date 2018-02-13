@@ -6,8 +6,9 @@ export default function (state=[], action){
         case WEATHER:
         let tempAVG=action.payload.main.temp;
         let name=action.payload.name
-        console.log (tempAVG)
-        return [name, tempAVG]
+        let id=action.payload.sys.id
+        console.log ('id', id)
+        return [name, tempAVG, id]
 
         default: 
         return state;

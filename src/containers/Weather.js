@@ -8,10 +8,11 @@ class Weather extends React.Component{
         }
         const name=this.props.weather[0];
         const temp= this.props.weather[1]
-        return <div>
-                  <h3>{name}</h3>
-                  <h4>{temp}C</h4>
-               </div>
+        return  <div>
+            <h2>{name}</h2>
+            <h3>{temp}&#8451;</h3>
+            </div>
+
     }
 }
 function mapStateToProps(state){

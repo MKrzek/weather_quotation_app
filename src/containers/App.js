@@ -7,15 +7,14 @@ import SearchBar from './SearchBar.js';
 import Calendar from '../components/Calendar.js';
 class App extends Component {
   render() {
-    return (
-      <div className="App">
-         <SearchBar/>
-        <MyLocation/>
-        <Calendar/>
+    return <div className="App">
+        <SearchBar />
+        <MyLocation />
+
         <Weather />
-        <Quote/>
-      </div>
-    );
+        <Calendar />
+        <Quote />
+      </div>;
   }
 }
 
