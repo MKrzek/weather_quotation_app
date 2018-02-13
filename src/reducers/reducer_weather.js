@@ -8,7 +8,7 @@ export default function (state=[], action){
         let name=action.payload.name
         let id=action.payload.sys.id
         console.log ('id', id)
-        return [name, tempAVG, id]
+        return [{name: name, temp: tempAVG, id:id}]
 
         default: 
         return state;

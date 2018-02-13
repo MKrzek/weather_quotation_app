@@ -1,23 +1,30 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import _ from 'lodash';
+import WeatherDisplay from '../components/WeatherDisplay.js';
 
 class Weather extends React.Component{
+
+    displayWeather=()=>{
+       return _.map(this.props.weather, data=>{
+          return  <WeatherDisplay key={data.id} weather={data}/>
+       })
+    }
+
     render(){
         if (this.props.weather ==='undefined'){
             return <div>Location not found, please check the spelling</div>
-        }
-        const name=this.props.weather[0];
-        const temp= this.props.weather[1]
+        };
         return  <div>
-            <h2>{name}</h2>
-            <h3>{temp}&#8451;</h3>
-            </div>
+                 {this.displayWeather()}
+                 </div>
 
     }
 }
 function mapStateToProps(state){
+    console.log('weather component', state.weather)
     return { weather: state.weather };
-}
-export default connect(mapStateToProps, null)(Weather)
+};
+export default connect(mapStateToProps, null)(Weather);
 
  

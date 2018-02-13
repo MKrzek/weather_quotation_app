@@ -54,24 +54,26 @@ export function fetchQuote(){
   }
 }
 export function addToLocalStorage(location){
+  const storedLocations= JSON.parse(localStorage.getItem('locations'))||[];
+  if (storedLocations>0){
+    for (let i=0; i<storedLocations.length; i++){
+      if (location[2]===storedLocations[i].id){
+      return false
+    }};
+    const myLocations = [location[1], ...storedLocations];
+    localStorage.setItem('locations', JSON.stringify(myLocations))
+  }
+  if (storedLocations.length===0){
+    const myLocations =[location]
+    localStorage.setItem('locations', JSON.stringify(myLocations))
+  }
   return dispatch=>{
+    dispatch({
+      type: ADD_TO_LOCALSTORAGE
+
+    })
     
   }
 }
 
-//  event.preventDefault();
-//     const beers = JSON.parse(localStorage.getItem('myFavBeers'))||[];
-    
-//     if (beers.length>0){
-//       for (let i=0; i<beers.length;i++){   
-//              if (this.props.beer.id===beers[i].id){ 
-//                  return false
-//              }};
-//          const myFavBeers = [this.props.beer, ...beers];
-//          localStorage.setItem('myFavBeers', JSON.stringify(myFavBeers))        
-//     };  
-//     if (beers.length===0){  
-//            const myFavBeers = [this.props.beer]
-//                 localStorage.setItem('myFavBeers', JSON.stringify(myFavBeers))
-
-// };
+ 
