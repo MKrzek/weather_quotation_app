@@ -4,13 +4,14 @@ import MyLocation from './MyLocation.js';
 import Weather from './Weather.js';
 import Quote from './Quote.js';
 import SearchBar from './SearchBar.js';
-
+import Calendar from '../components/Calendar.js';
 class App extends Component {
   render() {
     return (
       <div className="App">
          <SearchBar/>
         <MyLocation/>
+        <Calendar/>
         <Weather />
         <Quote/>
       </div>
