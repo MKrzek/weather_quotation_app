@@ -3,7 +3,7 @@ import axios from "axios";
 import { WEATHER } from "../constants.js";
 import {QUOTE} from "../constants.js";
 import {ADD_TO_LOCALSTORAGE} from '../constants.js';
-import {REMOVE_FROM_LOCALSTORAGE} from '../constants.js';
+//import {REMOVE_FROM_LOCALSTORAGE} from '../constants.js';
 
 
 export function showMyLocation() {
@@ -54,23 +54,30 @@ export function fetchQuote(){
   }
 }
 export function addToLocalStorage(location){
-  const storedLocations= JSON.parse(localStorage.getItem('locations'))||[];
-  if (storedLocations>0){
-    for (let i=0; i<storedLocations.length; i++){
-      if (location[2]===storedLocations[i].id){
-      return false
-    }};
-    const myLocations = [location[1], ...storedLocations];
-    localStorage.setItem('locations', JSON.stringify(myLocations))
-  }
-  if (storedLocations.length===0){
-    const myLocations =[location]
-    localStorage.setItem('locations', JSON.stringify(myLocations))
-  }
   return dispatch=>{
+    const toBeStored = location;
+    console.log("toBeStored id", toBeStored.id);
+    const storedLocations = JSON.parse(localStorage.getItem("locations")) || [];
+    console.log ('storedLocations', storedLocations.length);
+    if(storedLocations.length > 0) {
+      console.log ('in the loop')
+      for (let i = 0; i < storedLocations.length; i++) {
+        console.log (storedLocations.length)
+        if (toBeStored.id === storedLocations[i].id) {
+          console.log ( 'stored location id', storedLocations[i].id)
+          return false;
+        }
+      }
+      const myLocations =[toBeStored, ...storedLocations];
+      console.log ('myLocations', myLocations)
+      localStorage.setItem("locations", JSON.stringify(myLocations));
+    } else {
+      const myLocations = [toBeStored];
+      console.log ('myLocations', myLocations)
+      localStorage.setItem("locations", JSON.stringify(myLocations));
+    }
     dispatch({
-      type: ADD_TO_LOCALSTORAGE
-
+      type: ADD_TO_LOCALSTORAGE,
     })
     
   }

@@ -22,7 +22,7 @@ class Weather extends React.Component{
     }
 }
 function mapStateToProps(state){
-    console.log('weather component', state.weather)
+    
     return { weather: state.weather };
 };
 export default connect(mapStateToProps, null)(Weather);

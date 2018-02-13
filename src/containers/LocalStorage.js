@@ -5,7 +5,10 @@ import * as Actions from '../actions/index.js';
 class LocalStorage extends React.Component{
     
     addToLocalStorage=()=>{
-        const location=this.props.weather
+        let location = this.props.location;
+        location = location[0];
+        delete location.temp
+        console.log(location);
         this.props.addToLocalStorage(location)
     }
     render(){
@@ -15,7 +18,7 @@ class LocalStorage extends React.Component{
     }
 }
 function mapStateToProps(state){
-    console.log ('storage', state.weather)
+   
     return {
         location: state.weather
     }
