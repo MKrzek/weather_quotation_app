@@ -29,7 +29,9 @@ class SearchBar extends React.Component {
   };
 
   submitForm = values => {
-    this.props.fetchDfTags(values);
+    const location=values.searchBar;
+    
+    this.props.showWeather(location);
     values.searchBar = "";
   };
 
