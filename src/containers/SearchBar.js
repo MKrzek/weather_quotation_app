@@ -14,15 +14,14 @@ class SearchBar extends React.Component {
               {...input}
               type={type}
               placeholder={label}
-              className="col-7 form-control text-lowercase searchBar"
-            />
+              className="col-7 form-control text-lowercase searchBar" />
             <button type="submit" className="btn bmd-btn-icon">
               <i className="material-icons">search</i>
             </button>
           </div>
-
-          {touched &&
-            error && <div className="alert alert-danger">{error} </div>}
+          <div className='pl-4 pr-4'>
+          {touched && error && <div className="alert alert-danger">{error} </div>}
+          </div>
         </div>
       </fieldset>
     );
@@ -36,7 +35,7 @@ class SearchBar extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='mt-5 mb-5'>
         <form onSubmit={this.props.handleSubmit(this.submitForm)}>
           <Field
             name="searchBar"

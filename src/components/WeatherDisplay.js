@@ -4,9 +4,9 @@ export default class WeatherDisplay extends React.Component {
     const { name, temp } = this.props.weather;
 
     return (
-      <div>
-        <h2>{name}</h2>
-        <h3>{Math.round(temp)}&#8451;</h3>
+      <div className= 'mb-5 weatherDisplay'>
+        <h2 className='mb-5'>{name}</h2>
+        <h3 className='mb-5'>{Math.round(temp)}&#8451;</h3>
       </div>
     );
   }

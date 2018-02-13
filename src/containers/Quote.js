@@ -5,11 +5,11 @@ import * as Actions from "../actions/index.js";
 import LocalStorageDisplay from "./LocalStorageDisplay.js";
 
 class Quote extends React.Component {
-  constructor (props){
+  constructor(props) {
     super(props);
-    this.state={
+    this.state = {
       render: false
-    }
+    };
   }
   componentDidMount() {
     this.props.fetchQuote();
@@ -18,38 +18,52 @@ class Quote extends React.Component {
     }, 8.64e7);
   }
 
-  componentWillUnmount(){
+  componentWillUnmount() {
     clearInterval(this.quoteId);
   }
-  decodeEntities = (encodedString) => {
+  decodeEntities = encodedString => {
     if (encodedString && typeof encodedString === "string") {
-      encodedString = encodedString.replace(/<script[^>]*>([\S\s]*?)<\/script>/gim, "");
-      encodedString = encodedString.replace(/<\/?\w(?:[^"'>]|"[^"]*"|'[^']*')*>/gim, "");
+      encodedString = encodedString.replace(
+        /<script[^>]*>([\S\s]*?)<\/script>/gim,
+        ""
+      );
+      encodedString = encodedString.replace(
+        /<\/?\w(?:[^"'>]|"[^"]*"|'[^']*')*>/gim,
+        ""
+      );
       encodedString = htmlDecode(encodedString);
     }
     return encodedString;
   };
 
-  openLocalStorage=()=>{
+  openLocalStorage = () => {
+    if (this.state.render){
+    this.setState({
+      render: false
+    });
+  }else{
     this.setState({
       render: true
     })
   }
+  };
 
   render() {
     const { title, content } = this.props.quote;
-    return <div>
+    return (
+      <div className='mb-5 pl-4 pr-4 text-center'>
         <div>
           <div>
             <p>{this.decodeEntities(content)}</p>
             <p>{this.decodeEntities(title)}</p>
           </div>
-          <button onClick={this.openLocalStorage}>
-            <i className="fa fa-bars fa-4x" aria-hidden="true" />
+          <button onClick={this.openLocalStorage} >
+            <i className="fa fa-bars fa-3x" aria-hidden="true" />
           </button>
         </div>
-        {this.state.render ? (<LocalStorageDisplay />) : null}
-      </div>;
+    {this.state.render ? (<LocalStorageDisplay />) : null}
+      </div>
+    );
   }
 }
 function mapStateToProps(state) {

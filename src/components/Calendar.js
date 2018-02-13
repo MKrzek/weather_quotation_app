@@ -10,8 +10,10 @@ export default class Calendar extends React.Component{
     }
 
     render(){
-        return <h4>
+        return <div className='mb-5'>
+               <h4>
                 {this.getDate()}
                </h4>
+               </div>
     }
 }

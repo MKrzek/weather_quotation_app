@@ -1,17 +1,18 @@
-import React from 'react';
-export default class StoredLocation extends React.Component{
+import React from "react";
+export default class StoredLocation extends React.Component {
+  removeLocation = () => {
+    console.log("click works");
+    const { id } = this.props.location;
+    this.props.removeStoredLocation(id);
+  };
+  render() {
+    const { name } = this.props.location;
 
-    removeLocation=()=>{
-        console.log('click works')
-        const {id}=this.props.location
-        this.props.removeStoredLocation(id)
-    }
-    render(){
-        const {name}=this.props.location
-        
-        return <div>
-                <h3>{name}</h3>
-                <button onClick={this.removeLocation}>X</button>
-               </div>
-    }
+    return (
+      <div className='row'>
+        <h3 className='text-center'>{name}</h3>
+        <button className='buttonRemove' onClick={this.removeLocation}>X</button>
+      </div>
+    );
+  }
 }

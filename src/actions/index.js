@@ -66,7 +66,9 @@ export function addToLocalStorage(location) {
         if (
           toBeStored.id === storedLocations[i].id ||
           toBeStored.name === storedLocations[i].name
-        ){return false }
+        ) {
+          return false;
+        }
       }
       const myLocations = [toBeStored, ...storedLocations];
       localStorage.setItem("locations", JSON.stringify(myLocations));
