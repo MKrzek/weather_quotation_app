@@ -7,22 +7,22 @@ class Quote extends React.Component {
   componentDidMount() {
     this.props.fetchQuote();
   }
-  decodeEntities = () => {
-    let content = this.props.quote.content;
-    if (content && typeof content === "string") {
-      content = content.replace(/<script[^>]*>([\S\s]*?)<\/script>/gim, "");
-      content = content.replace(/<\/?\w(?:[^"'>]|"[^"]*"|'[^']*')*>/gim, "");
-      content = htmlDecode(content);
+  decodeEntities = (encodedString) => {
+    
+    if (encodedString && typeof encodedString === "string") {
+      encodedString = encodedString.replace(/<script[^>]*>([\S\s]*?)<\/script>/gim, "");
+      encodedString = encodedString.replace(/<\/?\w(?:[^"'>]|"[^"]*"|'[^']*')*>/gim, "");
+      encodedString = htmlDecode(encodedString);
     }
-    return content;
+    return encodedString;
   };
 
   render() {
-    const { title } = this.props.quote;
+    const { title, content } = this.props.quote;
     return (
       <div>
-        <p>{this.decodeEntities(this.props.quote.content)}</p>
-        <p>{title}</p>
+        <p>{this.decodeEntities(content)}</p>
+        <p>{this.decodeEntities(title)}</p>
       </div>
     );
   }
