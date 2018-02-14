@@ -9,9 +9,9 @@ export default class StoredLocation extends React.Component {
     const { name } = this.props.location;
 
     return (
-      <div className='row'>
+      <div className='row mx-auto'>
         <h3 className='text-center'>{name}</h3>
-        <button className='buttonRemove' onClick={this.removeLocation}>X</button>
+        <button className=' btn btn-alert' onClick={this.removeLocation}>X</button>
       </div>
     );
   }

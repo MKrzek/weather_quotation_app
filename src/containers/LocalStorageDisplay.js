@@ -30,7 +30,9 @@ class LocalStorageDisplay extends React.Component {
         <div>
           <LocalStorage />
         </div>
+        <div className='text-center'>
         {this.showStoredLocations()}
+        </div>
       </div>
     );
   }

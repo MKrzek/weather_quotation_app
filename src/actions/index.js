@@ -3,6 +3,7 @@ import swal from "sweetalert";
 import { WEATHER } from "../constants.js";
 import { QUOTE } from "../constants.js";
 import { DISPLAY_LOCALSTORAGE_DATA } from "../constants.js";
+import {GEO_ERROR} from '../constants.js';
 
 export function showMyLocation() {
   const myLocationURL = "http://ip-api.com/json";
@@ -14,7 +15,11 @@ export function showMyLocation() {
         dispatch(showWeather(location));
       })
       .catch(error => {
-        console.log(error);
+        dispatch({
+          type: GEO_ERROR,
+          
+
+        })
       });
   };
 }
@@ -27,7 +32,6 @@ export function showWeather(location) {
         `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&APPID=${API_KEY}`
       )
       .then(response => {
-        console.log("response", response.data);
         dispatch({
           type: WEATHER,
           payload: response.data

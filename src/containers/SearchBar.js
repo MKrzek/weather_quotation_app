@@ -35,7 +35,7 @@ class SearchBar extends React.Component {
 
   render() {
     return (
-      <div className='mt-5 mb-5'>
+      <div className='pt-5 pb-5'>
         <form onSubmit={this.props.handleSubmit(this.submitForm)}>
           <Field
             name="searchBar"

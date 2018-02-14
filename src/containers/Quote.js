@@ -50,20 +50,20 @@ class Quote extends React.Component {
 
   render() {
     const { title, content } = this.props.quote;
-    return (
-      <div className='mb-5 pl-4 pr-4 text-center'>
-        <div>
-          <div>
+    return <div className="pb-5 text-center">
+        
+          <div className='pb-5 mb-5'>
             <p>{this.decodeEntities(content)}</p>
             <p>{this.decodeEntities(title)}</p>
           </div>
-          <button onClick={this.openLocalStorage} >
-            <i className="fa fa-bars fa-3x" aria-hidden="true" />
-          </button>
+          <div className='pb-3'>
+            <i onClick={this.openLocalStorage} className="fa fa-bars fa-3x" aria-hidden="true" />
+          </div>
+          
+        <div className="mt-4 pt-4">
+          {this.state.render ? <LocalStorageDisplay /> : null}
         </div>
-    {this.state.render ? (<LocalStorageDisplay />) : null}
-      </div>
-    );
+      </div>;
   }
 }
 function mapStateToProps(state) {
