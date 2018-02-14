@@ -5,14 +5,17 @@ import LocalStorage from "./LocalStorage.js";
 import StoredLocation from "../components/StoredLocation.js";
 
 class LocalStorageDisplay extends React.Component {
-  
+
   componentDidMount = () => {
     this.props.fetchStoredLocations();
   };
   removeStoredLocation = id => {
-    
     this.props.removeStoredLocation(id);
   };
+
+  showWeather=(location)=>{
+    this.props.showWeather(location)
+  }
   showStoredLocations = () => {
     return this.props.storedLocations.map(location => {
       return (
@@ -20,6 +23,7 @@ class LocalStorageDisplay extends React.Component {
           key={location.id || location.name}
           location={location}
           removeStoredLocation={this.removeStoredLocation}
+          showWeather={this.showWeather}
         />
       );
     });

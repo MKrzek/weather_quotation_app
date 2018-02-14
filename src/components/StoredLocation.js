@@ -5,12 +5,17 @@ export default class StoredLocation extends React.Component {
     const { id } = this.props.location;
     this.props.removeStoredLocation(id);
   };
+  showWeather=()=>{
+    const{name}=this.props.location;
+    this.props.showWeather(name);
+  }
+
   render() {
     const { name } = this.props.location;
 
     return (
       <div className='row storedLocation'>
-        <h3 className='text center'>{name}</h3>
+        <h3 onClick={this.showWeather} className='text center'>{name}</h3>
         <button className=' btn btn-alert' onClick={this.removeLocation}>X</button>
       </div>
     );
