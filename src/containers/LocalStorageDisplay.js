@@ -5,12 +5,12 @@ import LocalStorage from "./LocalStorage.js";
 import StoredLocation from "../components/StoredLocation.js";
 
 class LocalStorageDisplay extends React.Component {
+  
   componentDidMount = () => {
-    console.log("dziaa;");
     this.props.fetchStoredLocations();
   };
   removeStoredLocation = id => {
-    console.log("remove works");
+    
     this.props.removeStoredLocation(id);
   };
   showStoredLocations = () => {
@@ -25,16 +25,12 @@ class LocalStorageDisplay extends React.Component {
     });
   };
   render() {
-    return (
-      <div>
+    return <div className='localStorageDisplay'>
         <div>
           <LocalStorage />
         </div>
-        <div className='text-center'>
-        {this.showStoredLocations()}
-        </div>
-      </div>
-    );
+        <div className='text-center'>{this.showStoredLocations()}</div>
+      </div>;
   }
 }
 function mapStateToProps(state) {

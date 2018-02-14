@@ -1,7 +1,8 @@
-body {
+html, body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  text-align: center;
   
   
 }
@@ -16,6 +17,7 @@ body {
 .mainPart{
   position: absolute;
   top: 25vh;
+  text-align:center;
 }
 i.fa-bars{
   /* position: absolute;
@@ -28,15 +30,28 @@ i.fa-bars{
 .coldColor{
  background-color: rgba(63, 191, 191, 0.48);
  text-align: center;
-  height: 100vh;
+  
  }
 
 .warmColor{
     background-color: rgba(247, 196, 43, 0.65);
     text-align: center;
-  height: 100vh;
+  
   
 }
-.App{
-  text-align: center;
+.localStorageDisplay{
+  background-color: white;
+  width: 100vw;
+  height: 100vh;
+ 
+}
+.weather{
+  margin: 0;
+  width: 100vw;
+}
+.storedLocation{
+width: 100vw;
+padding: 3vw;
+margin:0;
+
 }

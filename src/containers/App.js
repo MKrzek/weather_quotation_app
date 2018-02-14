@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import {connect} from 'react-redux';
+
 import MyLocation from "./MyLocation.js";
 import Weather from "./Weather.js";
 import Quote from "./Quote.js";
@@ -15,13 +16,21 @@ class App extends Component {
     })
   }
 
-
-  render() {
+   render() {
    const temp = this.changeBackgroundColor();
    console.log ('temp', temp[0])
+   let color;
+   if (temp[0]<18){
+     color='coldColor'
+   }else{
+     color='warmColor'
+   }
+   
+   document.body.classList = color ;
 
-    return <div className={temp[0] < 19 ? "coldColor" : "warmColor"}>
-        <div className="text-center">
+    return <div className="text-center">
+        
+         
           <SearchBar />
           <div className="mainPart">
             <MyLocation />
@@ -30,7 +39,7 @@ class App extends Component {
             <Quote className={temp[0] < 19 ? "coldColor" : "warmColor"} />
           </div>
         </div>
-      </div>;
+      
   }
 }
 function mapStateToProps(state){

@@ -20,7 +20,7 @@ class Weather extends React.Component {
     if (this.props.weather === "undefined") {
       return <div>Location not found, please check the spelling</div>;
     }
-    return <div>{this.displayWeather()}</div>;
+    return <div className='weather'>{this.displayWeather()}</div>;
   }
 }
 function mapStateToProps(state) {
