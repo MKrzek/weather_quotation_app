@@ -55,3 +55,17 @@ padding: 3vw;
 margin:0;
 
 }
+.quoteContent{
+  font-size: 2em
+}
+.quoteTitle{
+  font-size: 1.3em;
+  color: rgb(141, 144, 161)
+
+}
+.weatherName{
+  font-size: 3em
+}
+.weatherTemp{
+  font-size: 2.5em;
+}

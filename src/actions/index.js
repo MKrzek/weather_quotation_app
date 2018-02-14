@@ -32,6 +32,7 @@ export function showWeather(location) {
         `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&APPID=${API_KEY}`
       )
       .then(response => {
+        console.log('response', response)
         dispatch({
           type: WEATHER,
           payload: response.data

@@ -7,8 +7,9 @@ export default function (state=[], action){
         let tempAVG=action.payload.main.temp;
         let name=action.payload.name
         let id=action.payload.sys.id
+        let weather= action.payload.weather
         
-        return [{name: name, temp: tempAVG, id:id}]
+        return [{name: name, temp: tempAVG, id:id, weather: weather}]
 
         default: 
         return state;
