@@ -1,8 +1,7 @@
 import axios from "axios";
-
+import swal from "sweetalert";
 import { WEATHER } from "../constants.js";
 import { QUOTE } from "../constants.js";
-
 import { DISPLAY_LOCALSTORAGE_DATA } from "../constants.js";
 
 export function showMyLocation() {
@@ -57,24 +56,27 @@ export function fetchQuote() {
   };
 }
 export function addToLocalStorage(location) {
+  const toBeStored = location;
+  const storedLocations = JSON.parse(localStorage.getItem("locations")) || [];
   return dispatch => {
-    const toBeStored = location;
-    const storedLocations = JSON.parse(localStorage.getItem("locations")) || [];
-
     if (storedLocations.length > 0) {
       for (let i = 0; i < storedLocations.length; i++) {
-        if (
-          toBeStored.id === storedLocations[i].id ||
-          toBeStored.name === storedLocations[i].name
-        ) {
+        if (toBeStored.id === storedLocations[i].id ||
+           toBeStored.name === storedLocations[i].name  
+        ) 
+        {
+          swal('This location has been saved previously')
           return false;
         }
       }
       const myLocations = [toBeStored, ...storedLocations];
       localStorage.setItem("locations", JSON.stringify(myLocations));
-    } else {
+      swal('Your location has been saved')
+    } 
+    if (storedLocations.length===0) {
       const myLocations = [toBeStored];
       localStorage.setItem("locations", JSON.stringify(myLocations));
+      swal("Your location has been saved");
     }
     dispatch(fetchStoredLocations());
   };
@@ -82,8 +84,9 @@ export function addToLocalStorage(location) {
 
 export function fetchStoredLocations() {
   let storedLocations;
+  storedLocations = JSON.parse(localStorage.getItem("locations")) || [];
   return dispatch => {
-    storedLocations = JSON.parse(localStorage.getItem("locations")) || [];
+    
     dispatch({
       type: DISPLAY_LOCALSTORAGE_DATA,
       payload: storedLocations
@@ -92,9 +95,9 @@ export function fetchStoredLocations() {
 }
 
 export function removeStoredLocation(id) {
+  const storedLocations = JSON.parse(localStorage.getItem("locations"));
+  const savedLocations = storedLocations.filter(item => item.id !== id);
   return dispatch => {
-    const storedLocations = JSON.parse(localStorage.getItem("locations"));
-    const savedLocations = storedLocations.filter(item => item.id !== id);
     localStorage.setItem("locations", JSON.stringify(savedLocations));
     dispatch(fetchStoredLocations());
   };
