@@ -158,8 +158,8 @@ margin:0;
   border-radius: 50%;
   width: 100px;
   position: absolute;
-  right: 373px;
-  top: 20px;
+  right: 72px;
+  top: -38px;
 
 }
 /* Rain */
@@ -221,7 +221,7 @@ margin:0;
     margin-left: auto;
     margin-right: auto;
     right: 0;
-    top: 95px;
+    top: 50px;
 }
 
 .clouds {
@@ -259,6 +259,109 @@ margin:0;
   width: 140px;
   border-radius:50%;
 }
+
+/* Snow */
+@keyframes snowing {
+  0% {
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+    transform: translateY(6px);
+  }
+
+  40% {
+    opacity: 1;
+    transform: translateY(12px);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translateY(18px);
+  }
+
+  80% {
+    opacity: 1;
+    transform: translateY(24px);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+}
+
+.snows {
+  position: absolute;
+  width: 140px;
+}
+
+.snow1 {
+  background: #fff;
+  height: 10px;
+  border-radius: 50%;
+  width: 10px;
+  position: absolute;
+  animation: snowing 3s linear 0s infinite;
+  top: 20px;
+}
+
+.snow2 {
+  background: #fff;
+  height: 10px;
+  border-radius: 50%;
+  width: 10px;
+  position: absolute;
+  animation: snowing 4s linear 0s infinite;
+  left: 20px;
+  top: 25px;
+}
+
+.snow3 {
+  background: #fff;
+  height: 10px;
+  border-radius: 50%;
+  width: 10px;
+  position: absolute;
+  animation: snowing 3.5s linear 0s infinite;
+  left: 40px;
+  top: 30px;
+}
+
+.snow4 {
+  background: #fff;
+  height: 10px;
+  border-radius: 50%;
+  width: 10px;
+  position: absolute;
+  animation: snowing 2.5s linear 0s infinite;
+  left: 60px;
+  top: 28px;
+}
+
+.snow5 {
+  background: #fff;
+  height: 10px;
+  border-radius: 50%;
+  width: 10px;
+  position: absolute;
+  animation: snowing 4.5s linear 0s infinite;
+  left: 80px;
+  top: 20px;
+}
+
+.snow6 {
+  background: #fff;
+  height: 10px;
+  border-radius: 50%;
+  width: 10px;
+  position: absolute;
+  animation: snowing 5s linear 0s infinite;
+  left: 100px;
+  top: 28px;
+}
+
 
 
 
