@@ -6,6 +6,7 @@ import Weather from "./Weather.js";
 import Quote from "./Quote.js";
 import SearchBar from "./SearchBar.js";
 import Calendar from "../components/Calendar.js";
+
 import _ from 'lodash';
 
 class App extends Component {
@@ -15,35 +16,32 @@ class App extends Component {
        return  data.temp
     })
   }
+  
 
    render() {
    const temp = this.changeBackgroundColor();
-   console.log ('temp', temp[0])
    let color;
    if (temp[0]<18){
      color='coldColor'
    }else{
      color='warmColor'
    }
-   
    document.body.classList = color ;
 
     return <div className="text-center">
-        
-         
-          <SearchBar />
-          <div className="mainPart">
-            <MyLocation />
-            <Weather />
-            <Calendar />
-            <Quote className={temp[0] < 19 ? "coldColor" : "warmColor"} />
-          </div>
+        <SearchBar />
+        <div className="mainPart">
+          <MyLocation />
+          <Weather />
+          <Calendar />
+          <Quote className={temp[0] < 19 ? "coldColor" : "warmColor"} />
         </div>
+      </div>;
       
   }
 }
 function mapStateToProps(state){
-  
+  console.log('app weather', state.weather)
   return {
     weather: state.weather
   }

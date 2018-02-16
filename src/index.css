@@ -16,7 +16,7 @@ html, body {
 
 .mainPart{
   position: absolute;
-  top: 25vh;
+  top: 21vh;
   text-align:center;
 }
 i.fa-bars{
@@ -68,4 +68,57 @@ margin:0;
 }
 .weatherTemp{
   font-size: 2.5em;
+}
+
+/* cloud */
+.cloud{
+position: absolute;
+  height: 50px;
+  width: 300px;
+  border-radius:25px;
+}
+
+.scloud-one{
+  position: absolute;
+  height: 50px;
+  width: 300px;
+  border-radius:25px;
+}
+
+.scloud-two{
+  position: absolute;
+  top: -50px;
+  left: 40px;
+  height: 100px;
+  width: 100px;
+  border-radius:50%;
+}
+
+.scloud-three{
+  position: absolute;
+  top: -90px;
+  left: 120px;
+  height: 140px;
+  width: 140px;
+  border-radius:50%;
+}
+
+.weather-container {
+  height: 150px;
+  margin: 0 auto;
+  position: relative;
+  right: 0px;
+  top: 0px;
+  width: 250px;
+}
+
+.sun{
+   background: #fff134;
+  height: 100px;
+  border-radius: 50%;
+  width: 100px;
+  position: absolute;
+  right: 373px;
+  top: 20px;
+
 }
