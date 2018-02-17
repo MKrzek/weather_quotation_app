@@ -8,7 +8,11 @@ import WeatherDisplay from "../components/WeatherDisplay.js";
 class Weather extends React.Component {
   
   displayWeather = () => {
-    
+    if (this.props.geoError.length!==0){
+      return <h2 className='pb-5 text-danger'>Can't geolocate your location.Try searching manually.</h2>         
+    }else if (this.props.fetchError.length!==0){
+      return <h2 className='pb-5 text-danger'>Can't find a required location. Try again.</h2>
+    }else {
     let icon;
     return _.map(this.props.weather, data => {
       icon = data.weather;
@@ -17,20 +21,10 @@ class Weather extends React.Component {
       return <WeatherDisplay key={data.id} weather={data} icon={icon} />;
     });
   };
-  
+}
 
-
-  render() {
-      
-    return <div>
-           <div className="weather">{this.displayWeather()}</div>
-           <div className='error'>
-             {this.props.geoError.length!== 0 ? "Can't geolocate your location" : null}   
-             {this.props.fetchError.length!==0 ? "Can't find a required location": null} 
-           </div>
-           </div>
-        
-      
+  render() {  
+    return <div className="weather">{this.displayWeather()}</div>
   }
 }
 function mapStateToProps(state) {
