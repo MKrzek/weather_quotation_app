@@ -28,11 +28,12 @@ class App extends Component {
    }
    document.body.classList = color ;
 
-    return <div className="text-center">
+    return <div>
         <SearchBar />
         <div className="mainPart">
-          <MyLocation />
+          
           <Weather />
+          <MyLocation/>
           <Calendar />
           <Quote className={temp[0] < 19 ? "coldColor" : "warmColor"} />
         </div>

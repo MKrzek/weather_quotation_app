@@ -14,9 +14,11 @@ class LocalStorage extends React.Component {
 
 
   render() {
-    return<button className="buttonRound" onClick={this.addToLocalStorage}>
-          <i className="fa fa-plus fa-2x" />
+    return<div className='circleDiv'>
+        <button className="buttonRound" onClick={this.addToLocalStorage}>
+          <i className="fa fa-plus fa-3x" />
         </button>
+        </div> 
       
   }
 };

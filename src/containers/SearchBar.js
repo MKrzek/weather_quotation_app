@@ -19,7 +19,7 @@ class SearchBar extends React.Component {
               <i className="material-icons">search</i>
             </button>
           </div>
-          <div className='pl-4 pr-4'>
+          <div className='pl-5 pr-5 errorAlert'>
           {touched && error && <div className="alert alert-danger">{error} </div>}
           </div>
         </div>
@@ -35,7 +35,7 @@ class SearchBar extends React.Component {
 
   render() {
     return (
-      <div className='pt-5 pb-4'>
+      <div className='pt-5'>
         <form onSubmit={this.props.handleSubmit(this.submitForm)}>
           <Field
             name="searchBar"

@@ -4,6 +4,7 @@ import { WEATHER } from "../constants.js";
 import { QUOTE } from "../constants.js";
 import { DISPLAY_LOCALSTORAGE_DATA } from "../constants.js";
 import {GEO_ERROR} from '../constants.js';
+import {FETCHING_ERROR} from '../constants.js';
 
 export function showMyLocation() {
   const myLocationURL = "http://ip-api.com/json";
@@ -15,13 +16,25 @@ export function showMyLocation() {
         dispatch(showWeather(location));
       })
       .catch(error => {
-        dispatch({
-          type: GEO_ERROR,
-          
-
-        })
+        console.log('geo error', error)
+        dispatch(handleGeoError(error)
+        
+        )
       });
   };
+}
+export function handleGeoError(error){
+  console.log('geo2', error)
+  return dispatch=>{
+    dispatch({
+      type: GEO_ERROR,
+      payload: error
+    }
+
+    )
+
+    
+  }
 }
 
 export function showWeather(location) {
@@ -39,10 +52,20 @@ export function showWeather(location) {
         });
       })
       .catch(error => {
-        console.log(error);
+        console.log('error weather', error)
+        dispatch(handleFetchError(error))
       });
   };
 }
+export function handleFetchError(error){
+  return dispatch=>{
+    dispatch({
+      type: FETCHING_ERROR,
+      payload: error 
+    })
+  }
+}
+
 export function fetchQuote() {
   return dispatch => {
     axios

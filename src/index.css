@@ -3,25 +3,44 @@ html, body {
   padding: 0;
   font-family: sans-serif;
   text-align: center;
+} 
   
-  
-}
-.buttonRound{
-  border-radius: 40px;
-  height: 80px;
-  width: 80px;
-  background-color: lightgrey;
-  position: absolute;
-  top: -34px;
-  right: 85px;
 
-}
 
 .mainPart{
-  position: absolute;
+  position: relative;
   top: 21vh;
   text-align:center;
+  margin: 0;
+  
 }
+
+  
+ .circleDiv{
+   width: 5em;
+   height: 5em;
+    position: absolute;
+   top: -3vh;
+  right: 4vh;
+ } 
+
+.buttonRound{
+  border-radius: 50%;
+  height: 100%;
+  width: 100%;
+  background-color: lightgrey;
+ 
+}
+@media(max-width: 400px){
+  .circleDiv{
+    position: absolute;
+    right: 1vh;
+    top: -5vh;
+
+  }
+}
+
+
 i.fa-bars{
   /* position: absolute;
   bottom: 3vh; */
@@ -44,28 +63,20 @@ i.fa-bars{
 }
 .localStorageDisplay{
   background-color: white;
-  width: 100vw;
-  height: 100vh;
   position: relative;
- 
-}
-.weather{
   margin: 0;
-  width: 100vw;
 }
+
 .storedLocation{
-width: 100vw;
 padding: 3vw;
-margin:0;
-
+display: flex;
+flex-direction: row;
+justify-content: center;
 }
-.quoteContent{
-  font-size: 2em
-}
-.quoteTitle{
-  font-size: 1.3em;
-  color: rgb(141, 144, 161)
 
+/* Weather */
+.weather{
+  margin: 0; 
 }
 .weatherName{
   font-size: 3em
@@ -73,7 +84,39 @@ margin:0;
 .weatherTemp{
   font-size: 2.5em;
 }
+@media(max-width: 450px){
+  .weatherName{
+    font-size: 2em;
+  }
+  .weatherTemp{
+    font-size: 1.5em;
+  }
+}
 
+
+
+/* Quote */
+.quoteTitle{
+  font-size: 1.3em;
+  color: rgb(141, 144, 161);
+}
+
+.quoteContent{
+  font-size: 2em; 
+  font-style: italic;
+}
+@media(max-width: 450px){
+  .quoteContent{
+    font-size: 1em;
+  }
+  .quoteTitle{
+    font-size: 0.7em
+  }
+}
+
+
+
+/* ICONS */
 /* CLOUD*/
 @keyframes moving {
   0% {

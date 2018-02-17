@@ -52,15 +52,15 @@ class Quote extends React.Component {
     const { title, content } = this.props.quote;
     return <div className="pb-5">
         
-          <div className='pb-5 mb-5'>
-            <p className='quoteContent'>{this.decodeEntities(content)}</p>
+          <div className='pb-5 mb-5 quote'>
+            <p className='quoteContent pl-5 pr-5'>{this.decodeEntities(content)}</p>
             <p className='quoteTitle pt-3'>{this.decodeEntities(title)}</p>
           </div>
           <div className='pb-3'>
             <i onClick={this.openLocalStorage} className="fa fa-bars fa-3x" aria-hidden="true" />
           </div>
           
-        <div className="mt-4 pt-4">
+        <div className="pt-4">
           {this.state.render ? <LocalStorageDisplay /> : null}
         </div>
       </div>;
