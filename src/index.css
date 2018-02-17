@@ -71,7 +71,7 @@ i.fa-bars {
 
 /* Weather */
 .weather{
-  min-height: 20vh;
+  min-height: 24vh;
 }
 .weatherName {
   font-size: 3em;

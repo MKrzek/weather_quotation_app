@@ -52,7 +52,7 @@ class Quote extends React.Component {
     const { title, content } = this.props.quote;
     return (
       <div>
-        <div className="pb-3 mb-3 quote">
+        <div className="pb-3 mb-2 quote">
           <p className="quoteContent pl-5 pr-5">
             {this.decodeEntities(content)}
           </p>
