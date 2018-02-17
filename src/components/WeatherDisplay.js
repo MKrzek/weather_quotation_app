@@ -6,13 +6,14 @@ import Snow from '../components/Snow.js';
 export default class WeatherDisplay extends React.Component {
   render() {
     const { name, temp} = this.props.weather;
+    console.log('icon', this.props.icon)
     
    
     return <div className="pb-3">
         <h2 className="weatherName pb-5">{name}</h2>
         
         {this.props.icon === "Clouds" ? <Clouds /> : null} 
-        {this.props.icon==='Rain' || 'Drizzle' ? <Rain/> : null} 
+        {(this.props.icon==='Drizzle')|| (this.props.icon=='Rain') ? <Rain/> : null} 
         {this.props.icon ==='Snow' ? <Snow/> : null}
         {this.props.icon ==='Sun' ? <Sun/> :null}
         

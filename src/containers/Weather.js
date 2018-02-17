@@ -17,8 +17,8 @@ class Weather extends React.Component {
     return _.map(this.props.weather, data => {
       icon = data.weather;
       icon = icon.main
-      console.log ('icon', icon)
-      return <WeatherDisplay key={data.id} weather={data} icon={icon} />;
+      console.log ('icon in weather', icon)
+      return <WeatherDisplay key={data.id||data.name} weather={data} icon={icon} />;
     });
   };
 }
@@ -28,8 +28,6 @@ class Weather extends React.Component {
   }
 }
 function mapStateToProps(state) {
-  console.log('error', state.geoError)
-  console.log('fetch error', state.fetchError)
   return { weather: state.weather,
            geoError: state.geoError,
            fetchError: state.fetchError};

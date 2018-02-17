@@ -20,7 +20,7 @@ class App extends Component {
     const temp = this.changeBackgroundColor();
     let color;
     if (temp[0] > 19) {
-      color = "warColor";
+      color = "warmColor";
     } else {
       color = "coldColor";
     }
@@ -40,7 +40,6 @@ class App extends Component {
   }
 }
 function mapStateToProps(state) {
-  console.log("app weather", state.weather);
   return {
     weather: state.weather
   };
