@@ -40,7 +40,7 @@ class SearchBar extends React.Component {
           <Field
             name="searchBar"
             type="text"
-            label="Enter a query"
+            label="Specify your location"
             component={this.renderField}
           />
         </form>
@@ -52,7 +52,7 @@ class SearchBar extends React.Component {
 function validate(values) {
   const errors = {};
   if (!values.searchBar) {
-    errors.searchBar = "Enter your query";
+    errors.searchBar = "Specify your location";
   }
 
   return errors;

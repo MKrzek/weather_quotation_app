@@ -3,41 +3,62 @@ import { connect } from "react-redux";
 
 import _ from "lodash";
 import WeatherDisplay from "../components/WeatherDisplay.js";
+import GeoErrors from "../components/GeoErrors.js";
+import FetchErrors from "../components/FetchErrors.js";
 
 class Weather extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      geoDisplay: "block",
+      fetchDisplay: "block"
+    };
+  }
+
   displayWeather = () => {
-    if (this.props.geoError.length !== 0) {
+    let icon;
+    return _.map(this.props.weather, data => {
+      icon = data.weather;
+      icon = icon.main;
       return (
-        <h2 className="pb-5 text-danger">
-          Can't geolocate your location.Try searching manually.
-        </h2>
+        <WeatherDisplay key={data.id || data.name} weather={data} icon={icon} />
       );
-    } else if (this.props.fetchError.length !== 0) {
-      return (
-        <h2 className="pb-5 text-danger">
-          Can't find a required location. Try again.
-        </h2>
-      );
-    } else {
-      let icon;
-      return _.map(this.props.weather, data => {
-        icon = data.weather;
-        icon = icon.main;
-        return (
-          <WeatherDisplay
-            key={data.id || data.name}
-            weather={data}
-            icon={icon}
-          />
-        );
-      });
+    });
+  };
+
+  showGeoErrors = () => {
+    if (this.props.geoError.gError === "geoError") {
+      return <GeoErrors />;
     }
+    setTimeout(() => {
+      this.setState({ geoDisplay: "none" });
+    }, 3000);
+  };
+
+  showFetchErrors = () => {
+    if (this.props.fetchError.fError === "fetchingError") {
+      return <FetchErrors />;
+    }
+    setTimeout(() => {
+      this.setState({ fetchDisplay: "none" });
+    }, 3000);
   };
 
   render() {
-    return <div className="weather">{this.displayWeather()}</div>;
+    return (
+      <div className="weather">
+        <div style={{ display: this.state.geoDisplay }}>
+          {this.showGeoErrors()}
+        </div>
+        <div style={{ display: this.state.fetchDisplay }}>
+          {this.showFetchErrors()}
+        </div>
+        <div>{this.displayWeather()}</div>
+      </div>
+    );
   }
 }
+
 function mapStateToProps(state) {
   return {
     weather: state.weather,

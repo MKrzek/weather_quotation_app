@@ -7,7 +7,7 @@ import { GEO_ERROR } from "../constants.js";
 import { FETCHING_ERROR } from "../constants.js";
 
 export function showMyLocation() {
-  const myLocationURL = "http://ip-api.com/json";
+  const myLocationURL = "https://ip-api.com/json";
   return dispatch => {
     axios
       .get(myLocationURL)
@@ -16,15 +16,16 @@ export function showMyLocation() {
         dispatch(showWeather(location));
       })
       .catch(error => {
-        dispatch(handleGeoError(error));
+        dispatch(handleGeoError());
       });
   };
 }
-export function handleGeoError(error) {
+export function handleGeoError() {
+  const geoError= 'geoError'
   return dispatch => {
     dispatch({
       type: GEO_ERROR,
-      payload: error
+      payload: geoError
     });
   };
 }
@@ -43,15 +44,16 @@ export function showWeather(location) {
         });
       })
       .catch(error => {
-        dispatch(handleFetchError(error));
+        dispatch(handleFetchError());
       });
   };
 }
-export function handleFetchError(error) {
+export function handleFetchError() {
+  const fetchingError='fetchingError'
   return dispatch => {
     dispatch({
       type: FETCHING_ERROR,
-      payload: error
+      payload: fetchingError
     });
   };
 }
@@ -60,7 +62,7 @@ export function fetchQuote() {
   return dispatch => {
     axios
       .get(
-        "http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1"
+        "https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1"
       )
       .then(response => {
         dispatch({
