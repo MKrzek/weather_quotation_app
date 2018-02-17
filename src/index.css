@@ -1,120 +1,107 @@
-html, body {
+*{
+  box-sizing: border-box;
+  margin:0;
+}
+html,
+body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  text-align: center;
-} 
-  
-
-
-.mainPart{
-  position: relative;
-  top: 21vh;
-  text-align:center;
-  margin: 0;
+  overflow-x:hidden;
+ 
   
 }
 
-  
- .circleDiv{
-   width: 5em;
-   height: 5em;
-    position: absolute;
-   top: -3vh;
-  right: 4vh;
- } 
+.mainPart {
+  position: relative;
+  top: 15vh;
+  text-align: center;
+}
 
-.buttonRound{
+.circleDiv {
+  width: 5em;
+  height: 5em;
+  position: absolute;
+  top: -5vh;
+  right: 4vh;
+}
+
+.buttonRound {
   border-radius: 50%;
   height: 100%;
   width: 100%;
   background-color: lightgrey;
- 
 }
-@media(max-width: 400px){
-  .circleDiv{
+@media (max-width: 400px) {
+  .circleDiv {
     position: absolute;
     right: 1vh;
     top: -5vh;
-
   }
 }
 
-
-i.fa-bars{
-  /* position: absolute;
-  bottom: 3vh; */
-  
-  color: hsl(231, 9.6%, 59.2%)
-
+i.fa-bars {
+  color: hsl(231, 9.6%, 59.2%);
 }
 
-.coldColor{
- background-color: rgba(63, 191, 191, 0.48);
- text-align: center;
-  
- }
-
-.warmColor{
-    background-color: rgba(247, 196, 43, 0.65);
-    text-align: center;
-  
-  
+.coldColor {
+  background-color: rgba(63, 191, 191, 0.48);
+  text-align: center;
 }
-.localStorageDisplay{
+
+.warmColor {
+  background-color: rgba(247, 196, 43, 0.65);
+  text-align: center;
+}
+.localStorageDisplay {
   background-color: white;
   position: relative;
-  margin: 0;
+  
 }
 
-.storedLocation{
-padding: 3vw;
-display: flex;
-flex-direction: row;
-justify-content: center;
+.storedLocation {
+  padding-top: 3vh;
+  padding-bottom: 3vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+ 
 }
 
 /* Weather */
-.weather{
-  margin: 0; 
+.weatherName {
+  font-size: 3em;
 }
-.weatherName{
-  font-size: 3em
-}
-.weatherTemp{
+.weatherTemp {
   font-size: 2.5em;
 }
-@media(max-width: 450px){
-  .weatherName{
+@media (max-width: 450px) {
+  .weatherName {
     font-size: 2em;
   }
-  .weatherTemp{
+  .weatherTemp {
     font-size: 1.5em;
   }
 }
 
-
-
 /* Quote */
-.quoteTitle{
+.quoteTitle {
   font-size: 1.3em;
   color: rgb(141, 144, 161);
 }
 
-.quoteContent{
-  font-size: 2em; 
+.quoteContent {
+  font-size: 2em;
   font-style: italic;
 }
-@media(max-width: 450px){
-  .quoteContent{
+@media (max-width: 450px) {
+  .quoteContent {
     font-size: 1em;
   }
-  .quoteTitle{
-    font-size: 0.7em
+  .quoteTitle {
+    font-size: 0.7em;
   }
 }
-
-
 
 /* ICONS */
 /* CLOUD*/
@@ -132,87 +119,84 @@ justify-content: center;
   }
 }
 
-
 .back-cloud {
-    left: -78px;
-    margin-left: auto;
-    margin-right: auto;
-    right: 0;
-    top: 40px;
-  }
+  left: -78px;
+  margin-left: auto;
+  margin-right: auto;
+  right: 0;
+  top: 40px;
+}
 
-  .front-cloud {
-    animation: moving 5s linear 0s infinite;
-    left: 80px;
-    margin-left: auto;
-    margin-right: auto;
-    right: 0;
-    top: 80px;
-  }
-  .cloud-shadow {
-    animation: moving 3s linear 0s infinite;
-    transform: scale(1.09);
-    left: 74px;
-    margin-left: auto;
-    margin-right: auto;
-    right: 0;
-    top: 78px;
-  }
-  .cloud-one-shadow{
-  background:white;
+.front-cloud {
+  animation: moving 5s linear 0s infinite;
+  left: 80px;
+  margin-left: auto;
+  margin-right: auto;
+  right: 0;
+  top: 80px;
+}
+.cloud-shadow {
+  animation: moving 3s linear 0s infinite;
+  transform: scale(1.09);
+  left: 74px;
+  margin-left: auto;
+  margin-right: auto;
+  right: 0;
+  top: 78px;
+}
+.cloud-one-shadow {
+  background: white;
   position: absolute;
   height: 50px;
   width: 300px;
-  border-radius:25px;
+  border-radius: 25px;
 }
 
-.cloud-two-shadow{
+.cloud-two-shadow {
   position: absolute;
   background: white;
   top: -50px;
   left: 40px;
   height: 100px;
   width: 100px;
-  border-radius:50%;
+  border-radius: 50%;
 }
 
-.cloud-three-shadow{
+.cloud-three-shadow {
   position: absolute;
   background: white;
   top: -80px;
   left: 120px;
   height: 129px;
   width: 140px;
-  border-radius:50%;
+  border-radius: 50%;
 }
-
-
-
 
 /* SUN */
 .weather-container {
   height: 150px;
   margin: 0 auto;
   position: relative;
-  right: 0px;
+  right: 37px;
   top: 55px;
   width: 250px;
 }
 
-.sun{
-   background: #fff134;
+.sun {
+  background: #fff134;
   height: 100px;
   border-radius: 50%;
   width: 100px;
   position: absolute;
   right: 72px;
   top: -38px;
-
 }
 /* Rain */
 @keyframes raining {
-  0%, 60%, 100% {
-    transition-timing-function: cubic-bezier(.215, .610, .355, 1);
+  0%,
+  60%,
+  100% {
+    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
   }
 
   0% {
@@ -227,7 +211,6 @@ justify-content: center;
     opacity: 1;
   }
 }
-
 
 .rain1 {
   display: inline-block;
@@ -258,53 +241,53 @@ justify-content: center;
   border-radius: 30px;
   width: 10px;
   transform: rotate(30deg);
-  animation: raining 2.25s ease-in-out -.75s infinite;
+  animation: raining 2.25s ease-in-out -0.75s infinite;
   margin: 0 10px;
 }
 .rains {
   position: absolute;
   width: 110px;
   left: -10px;
-    margin-left: auto;
-    margin-right: auto;
-    right: 0;
-    top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  right: 0;
+  top: 50px;
 }
 
 .clouds {
-    left: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    right: 0;
-    top: 40px;
+  left: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  right: 0;
+  top: 40px;
 }
 
-  .cloud-one{
+.cloud-one {
   background: #d9d9d9;
   position: absolute;
   height: 50px;
   width: 300px;
-  border-radius:25px;
+  border-radius: 25px;
 }
 
-.cloud-two{
+.cloud-two {
   position: absolute;
   background: #d9d9d9;
   top: -50px;
   left: 40px;
   height: 100px;
   width: 100px;
-  border-radius:50%;
+  border-radius: 50%;
 }
 
-.cloud-three{
+.cloud-three {
   position: absolute;
   background: #d9d9d9;
   top: -80px;
   left: 120px;
   height: 129px;
   width: 140px;
-  border-radius:50%;
+  border-radius: 50%;
 }
 
 /* Snow */
@@ -408,8 +391,3 @@ justify-content: center;
   left: 100px;
   top: 28px;
 }
-
-
-
-
-  

@@ -19,9 +19,9 @@ class Weather extends React.Component {
       icon = icon.main
       console.log ('icon in weather', icon)
       return <WeatherDisplay key={data.id||data.name} weather={data} icon={icon} />;
-    });
-  };
-}
+    })
+  }
+};
 
   render() {  
     return <div className="weather">{this.displayWeather()}</div>

@@ -50,8 +50,7 @@ class Quote extends React.Component {
 
   render() {
     const { title, content } = this.props.quote;
-    return <div className="pb-5">
-        
+    return <div>
           <div className='pb-5 mb-5 quote'>
             <p className='quoteContent pl-5 pr-5'>{this.decodeEntities(content)}</p>
             <p className='quoteTitle pt-3'>{this.decodeEntities(title)}</p>
