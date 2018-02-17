@@ -17,7 +17,6 @@ export default class WeatherDisplay extends React.Component {
   showFarenheitTemp = () => {
     if (this.state.renderCelcius) {
       let tempFarenheit = this.props.weather.temp * 1.8 + 32;
-      console.log(tempFarenheit);
       this.setState({
         renderCelcius: false,
         renderFarenheit: true,
@@ -35,7 +34,6 @@ export default class WeatherDisplay extends React.Component {
 
   render() {
     const { name, temp } = this.props.weather;
-    console.log("icon", this.props.icon);
 
     return (
       <div className="pb-3">

@@ -4,32 +4,45 @@ import { connect } from "react-redux";
 import _ from "lodash";
 import WeatherDisplay from "../components/WeatherDisplay.js";
 
-
 class Weather extends React.Component {
-  
   displayWeather = () => {
-    if (this.props.geoError.length!==0){
-      return <h2 className='pb-5 text-danger'>Can't geolocate your location.Try searching manually.</h2>         
-    }else if (this.props.fetchError.length!==0){
-      return <h2 className='pb-5 text-danger'>Can't find a required location. Try again.</h2>
-    }else {
-    let icon;
-    return _.map(this.props.weather, data => {
-      icon = data.weather;
-      icon = icon.main
-      console.log ('icon in weather', icon)
-      return <WeatherDisplay key={data.id||data.name} weather={data} icon={icon} />;
-    })
-  }
-};
+    if (this.props.geoError.length !== 0) {
+      return (
+        <h2 className="pb-5 text-danger">
+          Can't geolocate your location.Try searching manually.
+        </h2>
+      );
+    } else if (this.props.fetchError.length !== 0) {
+      return (
+        <h2 className="pb-5 text-danger">
+          Can't find a required location. Try again.
+        </h2>
+      );
+    } else {
+      let icon;
+      return _.map(this.props.weather, data => {
+        icon = data.weather;
+        icon = icon.main;
+        return (
+          <WeatherDisplay
+            key={data.id || data.name}
+            weather={data}
+            icon={icon}
+          />
+        );
+      });
+    }
+  };
 
-  render() {  
-    return <div className="weather">{this.displayWeather()}</div>
+  render() {
+    return <div className="weather">{this.displayWeather()}</div>;
   }
 }
 function mapStateToProps(state) {
-  return { weather: state.weather,
-           geoError: state.geoError,
-           fetchError: state.fetchError};
+  return {
+    weather: state.weather,
+    geoError: state.geoError,
+    fetchError: state.fetchError
+  };
 }
 export default connect(mapStateToProps, null)(Weather);

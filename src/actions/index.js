@@ -3,8 +3,8 @@ import swal from "sweetalert";
 import { WEATHER } from "../constants.js";
 import { QUOTE } from "../constants.js";
 import { DISPLAY_LOCALSTORAGE_DATA } from "../constants.js";
-import {GEO_ERROR} from '../constants.js';
-import {FETCHING_ERROR} from '../constants.js';
+import { GEO_ERROR } from "../constants.js";
+import { FETCHING_ERROR } from "../constants.js";
 
 export function showMyLocation() {
   const myLocationURL = "http://ip-api.com/json";
@@ -16,25 +16,17 @@ export function showMyLocation() {
         dispatch(showWeather(location));
       })
       .catch(error => {
-        console.log('geo error', error)
-        dispatch(handleGeoError(error)
-        
-        )
+        dispatch(handleGeoError(error));
       });
   };
 }
-export function handleGeoError(error){
-  console.log('geo2', error)
-  return dispatch=>{
+export function handleGeoError(error) {
+  return dispatch => {
     dispatch({
       type: GEO_ERROR,
       payload: error
-    }
-
-    )
-
-    
-  }
+    });
+  };
 }
 
 export function showWeather(location) {
@@ -45,25 +37,23 @@ export function showWeather(location) {
         `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&APPID=${API_KEY}`
       )
       .then(response => {
-        console.log('response', response)
         dispatch({
           type: WEATHER,
           payload: response.data
         });
       })
       .catch(error => {
-        console.log('error weather', error)
-        dispatch(handleFetchError(error))
+        dispatch(handleFetchError(error));
       });
   };
 }
-export function handleFetchError(error){
-  return dispatch=>{
+export function handleFetchError(error) {
+  return dispatch => {
     dispatch({
       type: FETCHING_ERROR,
-      payload: error 
-    })
-  }
+      payload: error
+    });
+  };
 }
 
 export function fetchQuote() {
@@ -89,19 +79,19 @@ export function addToLocalStorage(location) {
   return dispatch => {
     if (storedLocations.length > 0) {
       for (let i = 0; i < storedLocations.length; i++) {
-        if (toBeStored.id === storedLocations[i].id ||
-           toBeStored.name === storedLocations[i].name  
-        ) 
-        {
-          swal('This location has been saved previously')
+        if (
+          toBeStored.id === storedLocations[i].id ||
+          toBeStored.name === storedLocations[i].name
+        ) {
+          swal("This location has been saved previously");
           return false;
         }
       }
       const myLocations = [toBeStored, ...storedLocations];
       localStorage.setItem("locations", JSON.stringify(myLocations));
-      swal('Your location has been saved')
-    } 
-    if (storedLocations.length===0) {
+      swal("Your location has been saved");
+    }
+    if (storedLocations.length === 0) {
       const myLocations = [toBeStored];
       localStorage.setItem("locations", JSON.stringify(myLocations));
       swal("Your location has been saved");
@@ -114,7 +104,6 @@ export function fetchStoredLocations() {
   let storedLocations;
   storedLocations = JSON.parse(localStorage.getItem("locations")) || [];
   return dispatch => {
-    
     dispatch({
       type: DISPLAY_LOCALSTORAGE_DATA,
       payload: storedLocations
