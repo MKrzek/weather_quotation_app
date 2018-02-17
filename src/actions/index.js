@@ -7,7 +7,7 @@ import { GEO_ERROR } from "../constants.js";
 import { FETCHING_ERROR } from "../constants.js";
 
 export function showMyLocation() {
-  const myLocationURL = "https://ip-api.com/json";
+  const myLocationURL = "http://ip-api.com/json";
   return dispatch => {
     axios
       .get(myLocationURL)

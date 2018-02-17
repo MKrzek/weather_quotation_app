@@ -7,6 +7,7 @@
     "axios": "^0.17.1",
     "gh-pages": "^1.1.0",
     "history": "^4.7.2",
+    
     "js-htmlencode": "^0.3.0",
     "lodash": "^4.17.5",
     "react": "^16.2.0",

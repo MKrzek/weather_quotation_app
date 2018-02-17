@@ -34,7 +34,7 @@ export default class WeatherDisplay extends React.Component {
 
   render() {
     const { name, temp } = this.props.weather;
-
+  
     return (
       <div className="pb-3">
         <h2 className="weatherName pb-5">{name}</h2>

@@ -9,7 +9,7 @@ class SearchBar extends React.Component {
     return (
       <fieldset className={`form-group${touched && error ? "has-error" : ""}`}>
         <div>
-          <div className="row justify-content-center">
+          <div className="searchBarjustify-content-center">
             <input
               {...input}
               type={type}

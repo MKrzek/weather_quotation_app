@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { htmlDecode } from "js-htmlencode";
+import $ from "jquery";
 import * as Actions from "../actions/index.js";
 import LocalStorageDisplay from "./LocalStorageDisplay.js";
 
@@ -58,8 +59,8 @@ class Quote extends React.Component {
           </p>
           <p className="quoteTitle pt-3">{this.decodeEntities(title)}</p>
         </div>
-        <button className="pb-3" onClick={this.openLocalStorage}> <i className="fa fa-bars fa-3x" aria-hidden="true"/>
-        </button>
+        <div className="pb-3" onClick={this.openLocalStorage}> <i className="fa fa-bars fa-3x" aria-hidden="true"/>
+        </div>
 
         <div className="pt-2">
           {this.state.render ? <LocalStorageDisplay /> : null}
