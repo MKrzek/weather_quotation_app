@@ -17,6 +17,18 @@ body {
   top: -5vh;
   right: 4vh;
 }
+@media (max-width: 400px) {
+  .circleDiv {
+    position: absolute;
+    right: 1vh;
+    top: -5vh;
+  }
+}
+@media(min-width: 1050px){
+  .circleDiv{
+    top: -3vh
+  }
+}
 
 .buttonRound {
   border-radius: 50%;
@@ -28,13 +40,7 @@ body {
   display: inline-block
 }
 
-@media (max-width: 400px) {
-  .circleDiv {
-    position: absolute;
-    right: 1vh;
-    top: -5vh;
-  }
-}
+
 
 i.fa-bars {
   color: hsl(231, 9.6%, 59.2%);
@@ -75,14 +81,14 @@ i.fa-bars {
   font-size: 3em;
 }
 .weatherTemp {
-  font-size: 2.5em;
+  font-size: 3.5em;
 }
 @media (max-width: 450px) {
   .weatherName {
     font-size: 2em;
   }
   .weatherTemp {
-    font-size: 1.5em;
+    font-size: 2em;
   }
 }
 
@@ -142,9 +148,9 @@ i.fa-bars {
 // Sun
 .sun {
   background: #fff134;
-  height: 100px;
+  height: 130px;
   border-radius: 50%;
-  width: 100px;
+  width: 130px;
   
 }
 .sunny{
@@ -226,6 +232,7 @@ i.fa-bars {
   @include weather-container;
 
   .back-cloud {
+     @include cloud-prototype ($cloud-color);
     left: 0;
     margin-left: auto;
     margin-right: auto;
@@ -291,7 +298,7 @@ i.fa-bars {
 
 .snowy {
   @include weather-container;
-  background-color: black;
+  
 
   .back-cloud {
     left: 0;

@@ -38,7 +38,7 @@ export default class Calendar extends React.Component {
 
   render() {
     return (
-      <div className="pb-4">
+      <div className="pb-5 pt-4">
         <h4>{this.getDate()}</h4>
       </div>
     );

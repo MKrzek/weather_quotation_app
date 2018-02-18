@@ -1,13 +1,8 @@
 import React from "react";
 export default class Snow extends React.Component {
   render() {
-    return (
-      <div className="weather-container">
-        <div className="clouds">
-          <div className="cloud-one" />
-          <div className="cloud-two" />
-          <div className="cloud-three" />
-        </div>
+    return <div className="snowy">
+        <div className="back-cloud" />
         <div className="snows">
           <div className="snow1" />
           <div className="snow2" />
@@ -16,7 +11,6 @@ export default class Snow extends React.Component {
           <div className="snow5" />
           <div className="snow6" />
         </div>
-      </div>
-    );
+      </div>;
   }
 }
