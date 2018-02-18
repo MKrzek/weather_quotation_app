@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { htmlDecode } from "js-htmlencode";
-import $ from "jquery";
+
 import * as Actions from "../actions/index.js";
 import LocalStorageDisplay from "./LocalStorageDisplay.js";
 
