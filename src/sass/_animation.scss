@@ -1,0 +1,80 @@
+@keyframes fog{
+  0% {
+    transform: translateX(-10px);
+  }
+
+  50% {
+    transform: translateX(10px);
+  }
+
+  100% {
+    transform: translateX(-10px);
+  }
+} 
+ 
+@keyframes moving {
+  0% {
+    transform: translateX(-10px);
+  }
+
+  50% {
+    transform: translateX(10px);
+  }
+
+  100% {
+    transform: translateX(-10px);
+  }
+}
+
+
+@keyframes raining {
+  0%,
+  60%,
+  100% {
+    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  0% {
+    opacity: 0;
+  }
+
+  60% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+
+@keyframes snowing {
+  0% {
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+    transform: translateY(6px);
+  }
+
+  40% {
+    opacity: 1;
+    transform: translateY(12px);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translateY(18px);
+  }
+
+  80% {
+    opacity: 1;
+    transform: translateY(24px);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+}

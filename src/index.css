@@ -42,6 +42,11 @@ body {
     top: -5vh;
   }
 }
+@media (max-width: 1050px){
+  .circleDiv{
+    top: -3vh;
+  }
+}
 
 i.fa-bars {
   color: hsl(231, 9.6%, 59.2%);
@@ -60,7 +65,7 @@ i.fa-bars {
 .localStorageDisplay {
   background-color: white;
   position: relative;
-  min-height: 20vh;
+  min-height: 35vh;
  
   
 }

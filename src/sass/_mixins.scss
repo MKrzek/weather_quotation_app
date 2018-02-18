@@ -1,0 +1,64 @@
+@mixin weather-container {
+ 
+  height: 150px;
+  margin: 0 auto;
+  position: relative;
+  right: 37px;
+  top: 55px;
+  width: 250px;
+}
+
+@mixin mist-prototype($color){
+  border-bottom: 10px solid $color;
+  width: 200px;
+ 
+
+}
+@mixin cloud-prototype($color){
+   background: $color;
+  border-radius: 30px;
+  height: 50px;
+  position: absolute;
+  width: 150px;
+
+  &::before {
+    background: $color;
+    border-radius: 50%;
+    content: ' ';
+    height: 80px;
+    margin-left: 23px;
+    margin-top: -40px;
+    position: absolute;
+    width: 80px;
+  }
+
+  &::after {
+    background: $color;
+    border-radius: 50%;
+    content: ' ';
+    height: 50px;
+    margin-left: 80px;
+    margin-top: -25px;
+    position: absolute;
+    width: 50px;
+  }
+} 
+// Rain
+@mixin rain-prototype($color) {
+  display: inline-block;
+  background: $color;
+  height: 30px;
+  border-radius: 30px;
+  width: 10px;
+  transform: rotate(30deg);
+}
+
+// Snow
+@mixin snow-prototype($color) {
+  background: $color;
+  height: 10px;
+  border-radius: 50%;
+  width: 10px;
+  position: absolute;
+}
+  

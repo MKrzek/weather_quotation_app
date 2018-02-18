@@ -16,7 +16,7 @@ export default class Calendar extends React.Component {
       "Grudzien"
     ];
     const dayNames = [
-      "Nedziela",
+      "Niedziela",
       "Poniedzialek",
       "Wtorek",
       "Sroda",

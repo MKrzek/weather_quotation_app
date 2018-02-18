@@ -1,0 +1,312 @@
+
+body {
+  font-family: sans-serif;
+  /* overflow-x:hidden;  */ 
+}
+
+.mainPart {
+  position: relative;
+  top: 15vh;
+  text-align: center;
+}
+
+.circleDiv {
+  width: 5em;
+  height: 5em;
+  position: absolute;
+  top: -5vh;
+  right: 4vh;
+}
+
+.buttonRound {
+  border-radius: 50%;
+  height: 100%;
+  width: 100%;
+  background-color: lightgrey;
+}
+.searchBar{
+  display: inline-block
+}
+
+@media (max-width: 400px) {
+  .circleDiv {
+    position: absolute;
+    right: 1vh;
+    top: -5vh;
+  }
+}
+
+i.fa-bars {
+  color: hsl(231, 9.6%, 59.2%);
+}
+
+.coldColor {
+  background-color: rgba(63, 191, 191, 0.48);
+  text-align: center;
+}
+
+.warmColor {
+  background-color: rgba(247, 196, 43, 0.65);
+  text-align: center;
+}
+/* Local Storage */
+.localStorageDisplay {
+  background-color: white;
+  position: relative;
+  min-height: 20vh;
+ 
+  
+}
+
+.storedLocation {
+  padding-top: 3vh;
+  padding-bottom: 3vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+ 
+}
+
+/* Weather */
+.weather{
+  min-height: 24vh;
+}
+.weatherName {
+  font-size: 3em;
+}
+.weatherTemp {
+  font-size: 2.5em;
+}
+@media (max-width: 450px) {
+  .weatherName {
+    font-size: 2em;
+  }
+  .weatherTemp {
+    font-size: 1.5em;
+  }
+}
+
+/* Quote */
+.quoteTitle {
+  font-size: 1.3em;
+  color: rgb(141, 144, 161);
+}
+
+.quoteContent {
+  font-size: 2em;
+  font-style: italic;
+  
+}
+@media (max-width: 450px) {
+  .quoteContent {
+    font-size: 1em;
+  }
+  .quoteTitle {
+    font-size: 0.7em;
+  }
+}
+
+
+
+
+
+
+// Mist
+
+.line1{
+  @include mist-prototype($fog-color);
+  animation: fog  2s infinite linear
+}
+.line2{
+  @include mist-prototype($fog-color);
+  animation: fog  2s infinite linear;
+  animation-delay: 0.5s
+}
+.line3{
+  @include mist-prototype($fog-color);
+  animation: fog  2s infinite linear;
+  animation-delay: 1s
+}
+.misty{
+  @include weather-container;
+  .line1{
+     padding-bottom: 20px;
+  }
+  .line2{
+     padding-bottom: 20px;
+  }
+  .line3{
+     padding-bottom: 20px;
+  }
+}
+// Sun
+.sun {
+  
+  background: #fff134;
+  height: 100px;
+  border-radius: 50%;
+  width: 100px;
+  
+}
+.sunny{
+  @include weather-container;
+  .sun{
+    position: absolute;
+  right: 72px;
+  top: -38px;
+  }
+}
+
+// Cloud
+
+.back-cloud{
+  @include cloud-prototype ($cloud-color);
+}
+.front-cloud{
+  @include cloud-prototype($cloud-color);
+  animation: moving 5s linear 0s infinite
+}
+.cloud-shadow {
+  @include cloud-prototype ($shadow-color);
+  animation: moving 3s linear 0s infinite;
+  transform : scale (1.09)
+}
+.cloudy {
+  @include weather-container;
+
+  .back-cloud {
+    left: -78px;
+    margin-left: auto;
+    margin-right: auto;
+    right: 0;
+    top: 40px;
+  }
+
+  .cloud-shadow {
+    left: 74px;
+    margin-left: auto;
+    margin-right: auto;
+    right: 0;
+    top: 78px;
+  }
+
+  .front-cloud {
+    left: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    right: 0;
+    top: 80px;
+  }
+}
+
+// Rain
+.rains {
+  position: absolute;
+  width: 110px;
+}
+
+.rain1 {
+  @include rain-prototype($rain-color);
+  animation: raining 2.25s ease-in-out 0s infinite;
+  margin: 0 10px;
+}
+
+.rain2 {
+  @include rain-prototype($rain-color);
+  animation: raining 2.25s ease-in-out -1.5s infinite;
+  margin: 0 10px;
+}
+
+.rain3 {
+  @include rain-prototype($rain-color);
+  animation: raining 2.25s ease-in-out -.75s infinite;
+  margin: 0 10px;
+}
+
+.rainy {
+  @include weather-container;
+
+  .back-cloud {
+    left: 0;
+    margin-left: auto;
+    margin-right: auto;
+    right: 0;
+    top: 40px;
+  }
+
+  .rains {
+    left: -10px;
+    margin-left: auto;
+    margin-right: auto;
+    right: 0;
+    top: 95px;
+  }
+}
+
+// snow
+.snows {
+  position: absolute;
+  width: 140px;
+}
+
+.snow1 {
+  @include snow-prototype($snow-color);
+  animation: snowing 3s linear 0s infinite;
+  top: -4px;
+}
+
+.snow2 {
+  @include snow-prototype($snow-color);
+  animation: snowing 4s linear 0s infinite;
+  left: 20px;
+  top: -1px;
+}
+
+.snow3 {
+  @include snow-prototype($snow-color);
+  animation: snowing 3.5s linear 0s infinite;
+  left: 40px;
+  top: 0;
+}
+
+.snow4 {
+  @include snow-prototype($snow-color);
+  animation: snowing 2.5s linear 0s infinite;
+  left: 60px;
+  top: -2px;
+}
+
+.snow5 {
+  @include snow-prototype($snow-color);
+  animation: snowing 4.5s linear 0s infinite;
+  left: 80px;
+  top: -5px;
+}
+
+.snow6 {
+  @include snow-prototype($snow-color);
+  animation: snowing 5s linear 0s infinite;
+  left: 100px;
+  top: -1px;
+}
+
+.snowy {
+  @include weather-container;
+  background-color: black;
+
+  .back-cloud {
+    left: 0;
+    margin-left: auto;
+    margin-right: auto;
+    right: 0;
+    top: 40px;
+  }
+
+  .snows {
+    left: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    right: 0;
+    top: 95px;
+  }
+}
