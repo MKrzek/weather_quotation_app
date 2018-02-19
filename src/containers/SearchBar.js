@@ -9,18 +9,20 @@ class SearchBar extends React.Component {
     return (
       <fieldset className={`form-group${touched && error ? "has-error" : ""}`}>
         <div>
-          <div className="searchBarjustify-content-center">
+          <div className="searchBar justify-content-center">
             <input
               {...input}
               type={type}
               placeholder={label}
-              className="col-7 form-control text-lowercase searchBar" />
+              className="col-7 form-control text-lowercase searchBar"
+            />
             <button type="submit" className="btn bmd-btn-icon">
               <i className="material-icons">search</i>
             </button>
           </div>
-          <div className='pl-5 pr-5 errorAlert'>
-          {touched && error && <div className="alert alert-danger">{error} </div>}
+          <div className="pl-5 pr-5 errorAlert">
+            {touched &&
+              error && <div className="alert alert-danger">{error} </div>}
           </div>
         </div>
       </fieldset>
@@ -28,14 +30,14 @@ class SearchBar extends React.Component {
   };
 
   submitForm = values => {
-    const location=values.searchBar;
+    const location = values.searchBar;
     this.props.showWeather(location);
     values.searchBar = "";
   };
 
   render() {
     return (
-      <div className='pt-5'>
+      <div className="pt-5">
         <form onSubmit={this.props.handleSubmit(this.submitForm)}>
           <Field
             name="searchBar"
