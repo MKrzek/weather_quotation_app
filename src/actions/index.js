@@ -103,8 +103,7 @@ export function addToLocalStorage(location) {
 }
 
 export function fetchStoredLocations() {
-  let storedLocations;
-  storedLocations = JSON.parse(localStorage.getItem("locations")) || [];
+  const storedLocations = JSON.parse(localStorage.getItem("locations")) || [];
   return dispatch => {
     dispatch({
       type: DISPLAY_LOCALSTORAGE_DATA,
